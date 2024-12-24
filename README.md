@@ -17,3 +17,14 @@ Include this contact information in both posts:</br>
 📍 Location: House-29, Rd No. 2, Nikunja-2, Khilkhet, Dhaka, Bangladesh, 1229 </br>
 
 Use appropriate hashtags to optimize for engagement on both platforms. Always tailor the tone to suit Facebook’s casual/professional audience and LinkedIn’s professional audience. Mention TELCo. (Total Engineering and Lifestyle Amenities Co.) in context when referring to the company to maintain brand visibility and consistency."
+<br>
+# color:
+https://material.io <br>
+https://www.sessions.edu/ <br>
+https://color.adobe.com <br>
+http://paletton.com <br>
+https://blog.bannersnack.com/ <br>
+https://bit.ly/2TGDh0t <br>
+https://www.colorcombos.com <br>
+https://www.canva.com/learn/100-color <br>
+https://flatuicolors.com <br>
