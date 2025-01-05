@@ -174,5 +174,11 @@ margin: 0px;
 padding: 0px;
 overflow-x: hidden;
 }
-  ```
-</p>
+``
+	</p>
+<br>
+Product Catalog Image Prompt:<br>
+"Design a sleek, professional product catalog image for a company specializing in lifestyle engineering solutions, focusing on high-end products for swimming pools, jacuzzis, and water feature fountains. The catalog should showcase a variety of top-quality materials and products, including elegant pool tiles, stylish jacuzzi designs, and sophisticated water fountain features. Incorporate images of swimming pools with crystal-clear water, a jacuzzi setup, and artistic water features that embody luxury and comfort. The background should be subtle, highlighting the quality and elegance of the products while ensuring that the company's name 'TOTAL ENGINEERING AND LIFESTYLE AMENITIES (TELCo.)' is clearly visible. Use vibrant but professional colors to convey luxury and exclusivity."
+<br>
+Background Image Prompt:<br>
+"Create a clean, elegant, and modern background image for a product catalog. The design should feature soft, flowing lines that resemble the curves of water, reflecting a sense of tranquility and sophistication. Use a blend of cool blue tones, soft whites, and perhaps a hint of golden accents to evoke a luxurious, serene atmosphere. The background should suggest a relaxing lifestyle, ideal for showcasing premium products for swimming pools, jacuzzis, and fountains. The overall tone should be peaceful yet high-end, making it suitable for a lifestyle brand like TELCo. Keep the design minimalistic with a subtle texture that adds depth without overwhelming the product display."<br>
