@@ -182,3 +182,15 @@ Product Catalog Image Prompt:<br>
 <br>
 Background Image Prompt:<br>
 "Create a clean, elegant, and modern background image for a product catalog. The design should feature soft, flowing lines that resemble the curves of water, reflecting a sense of tranquility and sophistication. Use a blend of cool blue tones, soft whites, and perhaps a hint of golden accents to evoke a luxurious, serene atmosphere. The background should suggest a relaxing lifestyle, ideal for showcasing premium products for swimming pools, jacuzzis, and fountains. The overall tone should be peaceful yet high-end, making it suitable for a lifestyle brand like TELCo. Keep the design minimalistic with a subtle texture that adds depth without overwhelming the product display."<br>
+
+[Product Name] is a [product type] used to [purpose of the product]. It typically contains [active ingredients] that [description of how it works]. This product helps to [outcome or benefit of use], ensuring [desired result or effect].<br>
+
+Weight: [input weight]<br>
+Formula: [input formula]<br>
+Appearance: [input appearance]<br>
+Active Ingredient Content (%): [input percentage]<br>
+pH (1% water solution): [input pH range]<br>
+Viscosity: [input viscosity]<br>
+Density (g/cm³): [input density]<br>
+Moisture (%): [input moisture percentage]<br>
+<br>
