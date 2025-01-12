@@ -197,3 +197,8 @@ Viscosity: [input viscosity]<br>
 Density (g/cm³): [input density]<br>
 Moisture (%): [input moisture percentage]<br>
 <br>
+
+Got it! Here's a more flexible version of the prompt, where the product name and other fields can easily change:
+<br>
+Prompt Template:<br>
+Looking for an efficient and easy way to keep your pool clean? The [Product Name] is the perfect tool for quickly removing leaves, twigs, and other debris from your pool. With its lightweight, durable frame and fine mesh netting, it ensures you can maintain a crystal-clear pool with minimal effort. Ideal for both small and large debris, this rake is designed for comfort and convenience. Say goodbye to tedious pool cleaning and enjoy a pristine swimming experience with the [Product Name].<br>
