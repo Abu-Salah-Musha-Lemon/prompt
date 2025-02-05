@@ -282,6 +282,10 @@ Sub GenerateNameAndLocation()
 ErrorHandler:
     MsgBox "An error occurred: " & Err.Description, vbExclamation
 End Sub
+```
+### `ApplyConditionalFormatting` Subroutine
+
+```vba
 Sub ApplyConditionalFormatting(ws As Worksheet)
     Dim rng As Range
     Dim cell As Range
