@@ -325,3 +325,59 @@ ErrorHandler:
     MsgBox "An error occurred: " & Err.Description, vbExclamation
 End Sub
 ```
+### `GenerateNameAndLocation` Subroutine
+
+```script
+function generateNameAndLocation() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+  var range = sheet.getRange("H5:H26");
+  var data = range.getValues();
+  
+  // Clear existing data in columns A and B (from row 4 to row 1000)
+  sheet.getRange("A4:B1000").clearContent();
+  
+  // Process data from H5:H26 and populate columns A and B
+  for (var i = 0; i < data.length; i++) {
+    var cellValue = data[i][0];
+    if (cellValue.indexOf(":") > 0) {
+      var parts = cellValue.split(":");
+      sheet.getRange(i + 5, 1).setValue(parts[0].trim());  // Name in column A
+      sheet.getRange(i + 5, 2).setValue(parts[1].trim());  // Morning Location in column B
+    }
+  }
+  
+  // Sort the Morning Location column (B) alphabetically
+  var lastRow = sheet.getLastRow();
+  if (lastRow >= 5) {
+    var sortRange = sheet.getRange("B5:B" + lastRow);
+    sortRange.sort({column: 2, ascending: true});
+  }
+  
+  // Apply conditional formatting after data entry
+  applyConditionalFormatting(sheet);
+}
+
+function applyConditionalFormatting(sheet) {
+  var lastRow = sheet.getLastRow();
+  if (lastRow >= 5) {
+    var range = sheet.getRange("B5:B" + lastRow);
+    
+    // Loop through the cells in the "Morning Location" column
+    for (var i = 0; i < range.getNumRows(); i++) {
+      var cell = range.getCell(i + 1, 1);
+      var value = cell.getValue().toLowerCase();
+      
+      // Apply conditional formatting based on the value
+      var row = sheet.getRange(i + 5, 1, 1, 6);  // A to F in the same row
+      if (value === "leave" || value === "absent") {
+        row.setBackground("red");  // Red for "leave" or "absent"
+      } else if (value.indexOf("with") > -1) {
+        row.setBackground("green");  // Green if "with [name]"
+      } else {
+        row.setBackground(null);  // Clear background for other values
+      }
+    }
+  }
+}
+
+```
