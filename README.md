@@ -202,3 +202,122 @@ Got it! Here's a more flexible version of the prompt, where the product name and
 <br>
 Prompt Template:<br>
 Looking for an efficient and easy way to keep your pool clean? The [Product Name] is the perfect tool for quickly removing leaves, twigs, and other debris from your pool. With its lightweight, durable frame and fine mesh netting, it ensures you can maintain a crystal-clear pool with minimal effort. Ideal for both small and large debris, this rake is designed for comfort and convenience. Say goodbye to tedious pool cleaning and enjoy a pristine swimming experience with the [Product Name].<br>
+
+
+# Excel VBA Macro: Generate Name and Location
+
+This VBA macro automates the process of generating names and morning locations from a given range in Excel. It performs the following tasks:
+
+1. **Data Extraction**: Extracts names and locations from a range of cells (H5:H26) in **Sheet1**.
+2. **Data Processing**: Splits the data into two columns — "Name" and "Morning Location" — and populates them in columns A and B, starting from row 5.
+3. **Alphabetical Sorting**: Sorts the "Morning Location" column (column B) in alphabetical order.
+4. **Conditional Formatting**: Applies conditional formatting based on specific conditions:
+   - Red background for "leave" or "absent".
+   - Green background for entries containing "with" (e.g., "with John").
+   - Clears formatting if no condition is met.
+
+## Prerequisites
+
+- Microsoft Excel (with VBA support)
+- Basic understanding of VBA
+
+## Usage
+
+### Steps to Use the Macro:
+
+1. Open the Excel file where you want to use this macro.
+2. Press `Alt + F11` to open the Visual Basic for Applications (VBA) editor.
+3. In the VBA editor, go to **Insert > Module** to create a new module.
+4. Copy and paste the provided code into the new module.
+5. Close the VBA editor (`Alt + Q`).
+6. To run the macro:
+   - Press `Alt + F8` to open the Macro dialog.
+   - Select the macro `GenerateNameAndLocation`.
+   - Click "Run".
+
+### Expected Result:
+- Names and locations will be extracted from the range `H5:H26` in **Sheet1** and placed in columns A and B.
+- Column B (Morning Location) will be sorted alphabetically.
+- Conditional formatting will be applied to the rows based on the specified conditions.
+
+## Code Overview
+
+### `GenerateNameAndLocation` Subroutine
+
+```vba
+Sub GenerateNameAndLocation()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim cell As Range
+
+    On Error GoTo ErrorHandler ' Error handling
+
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Data Entry Sheet
+
+    ' Unmerge any merged cells before clearing data
+    ws.Range("A4:B1000").UnMerge
+
+    ' Clear existing data
+    ws.Range("A4:B1000").ClearContents
+
+    ' Process data from H5:H26
+    For Each cell In ws.Range("H5:H26")
+        If InStr(cell.Value, ":") > 0 Then
+            ws.Cells(cell.Row, 1).Value = Trim(Split(cell.Value, ":")(0))
+            ws.Cells(cell.Row, 2).Value = Trim(Split(cell.Value, ":")(1))
+        End If
+    Next cell
+
+    ' Sort the data in column B (Morning Location) alphabetically
+    lastRow = ws.Cells(ws.Rows.Count, "B").End(xlUp).Row
+    If lastRow >= 5 Then
+        ws.Range("B5:B" & lastRow).Sort Key1:=ws.Range("B5"), Order1:=xlAscending, Header:=xlNo
+    End If
+
+    ' Apply conditional formatting after data entry
+    ApplyConditionalFormatting ws
+
+    Exit Sub
+
+ErrorHandler:
+    MsgBox "An error occurred: " & Err.Description, vbExclamation
+End Sub
+Sub ApplyConditionalFormatting(ws As Worksheet)
+    Dim rng As Range
+    Dim cell As Range
+    Dim lastRow As Long
+
+    On Error GoTo ErrorHandler ' Error handling
+
+    ' Find the last row with data in column B of Sheet1
+    lastRow = ws.Cells(ws.Rows.Count, "B").End(xlUp).Row
+
+    ' Apply formatting only if there is data
+    If lastRow >= 5 Then
+        Set rng = ws.Range("B5:B" & lastRow)
+
+        For Each cell In rng
+            ' Apply formatting to corresponding row in A:F range
+            With ws.Range("A" & cell.Row & ":F" & cell.Row)
+                If LCase(Trim(cell.Value)) = "leave" Or LCase(Trim(cell.Value)) = "absent" Then
+                    ' Red background for "leave" or "absent"
+                    .Interior.Color = RGB(255, 0, 0)
+
+                ElseIf InStr(1, LCase(cell.Value), "with") > 0 Then
+                    ' Green background if "with [name]"
+                    .Interior.Color = RGB(0, 255, 0)
+
+                Else
+                    ' Clear background if no condition matches
+                    .Interior.ColorIndex = xlNone
+                End If
+            End With
+        Next cell
+    End If
+
+    Exit Sub
+
+ErrorHandler:
+    MsgBox "An error occurred: " & Err.Description, vbExclamation
+End Sub
+```
