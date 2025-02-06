@@ -325,6 +325,78 @@ ErrorHandler:
     MsgBox "An error occurred: " & Err.Description, vbExclamation
 End Sub
 ```
+### `Old code` Subroutine
+
+``` vba
+Sub GenerateNameAndLocation()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long, dataArray As Variant
+    
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change as needed
+    
+    ' Clear existing data
+    ws.Range("A4:B1000").ClearContents
+
+    ' Headers
+    ws.Cells(4, 1).Value = "Name"
+    ws.Cells(4, 2).Value = "Location"
+
+    ' Prompt user for data input
+    dataArray = Application.InputBox("Enter names and locations (Format: Name:Location), separated by commas:", Type:=2)
+
+    If dataArray = False Then Exit Sub ' Cancel pressed
+
+    ' Split the data into an array
+    Dim dataEntries As Variant
+    dataEntries = Split(dataArray, ",")
+
+    ' Fill data starting from row 5
+    For i = LBound(dataEntries) To UBound(dataEntries)
+        If InStr(dataEntries(i), ":") > 0 Then
+            ws.Cells(5 + i, 1).Value = Trim(Split(dataEntries(i), ":")(0))
+            ws.Cells(5 + i, 2).Value = Trim(Split(dataEntries(i), ":")(1))
+        End If
+    Next i
+End Sub
+
+Sub ApplyConditionalFormatting()
+    Dim rng As Range
+    Dim cell As Range
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change as needed
+    
+    ' Find the last row with data in column B
+    lastRow = ws.Cells(ws.Rows.Count, "B").End(xlUp).Row
+    
+    ' Apply formatting only if there is data
+    If lastRow >= 5 Then
+        Set rng = ws.Range("B5:B" & lastRow)
+
+        For Each cell In rng
+            If cell.Value = "Leave" Or cell.Value = "Absent" Then
+                ' Red background for "Leave" or "Absent"
+                cell.Offset(0, -1).Resize(1, 6).Interior.Color = RGB(255, 0, 0)
+            
+            ElseIf InStr(1, cell.Value, "with") > 0 Then
+                ' Green background if "with [name]"
+                cell.Offset(0, -1).Resize(1, 6).Interior.Color = RGB(0, 255, 0)
+            
+            ElseIf LCase(cell.Value) = "maintenance" Then
+                ' Yellow background for "maintenance"
+                cell.Offset(0, -1).Resize(1, 6).Interior.Color = RGB(255, 255, 0)
+            
+            Else
+                ' Clear background if no condition matches
+                cell.Offset(0, -1).Resize(1, 6).Interior.ColorIndex = xlNone
+            End If
+        Next cell
+    End If
+End Sub
+
+```
 ### `GenerateNameAndLocation` Subroutine
 
 ```script
