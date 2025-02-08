@@ -453,3 +453,66 @@ function applyConditionalFormatting(sheet) {
 }
 
 ```
+### `ProcessData` Subroutine
+```vba
+Sub ProcessData()
+
+    Dim ws As Worksheet
+    Dim i As Long
+    Dim nameStatus As String
+    Dim namePart As String
+    Dim statusPart As String
+    Dim rowRange As Range
+    
+    ' Set the worksheet object (you can modify this if needed)
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Replace "Sheet1" with the name of your sheet
+    
+    ' Loop through rows 4 to 26
+    For i = 4 To 26
+        ' Get the value from column A
+        nameStatus = ws.Cells(i, 1).Value
+        
+        ' Split the value at the colon
+        If InStr(nameStatus, ":") > 0 Then
+            namePart = Trim(Split(nameStatus, ":")(0))
+            statusPart = Trim(Split(nameStatus, ":")(1))
+            
+            ' Place the name in column A and the status in column B
+            ws.Cells(i, 1).Value = namePart
+            ws.Cells(i, 2).Value = statusPart
+        End If
+        
+        ' Get the row range from column A to G
+        Set rowRange = ws.Range(ws.Cells(i, 1), ws.Cells(i, 7))
+        
+        ' Apply color formatting based on the status
+        If InStr(1, statusPart, "Leave", vbTextCompare) > 0 Or InStr(1, statusPart, "Absent", vbTextCompare) > 0 Then
+            rowRange.Interior.Color = RGB(255, 0, 0) ' Red for Leave or Absent
+        ElseIf InStr(1, statusPart, "with", vbTextCompare) > 0 Then
+            rowRange.Interior.Color = RGB(0, 255, 0) ' Green for with (case-insensitive)
+        Else
+            rowRange.Interior.Color = RGB(255, 255, 255) ' White for all other statuses
+        End If
+    Next i
+
+End Sub
+
+```
+
+*Prompt*:
+```
+Create a VBA macro for Excel that processes data in a worksheet. The data is located in *column A (from row 4 to row 26). The content in **column A* contains names and corresponding statuses separated by a colon (:) in the format "Name: Status". 
+
+The following functionality should be implemented:
+
+1. *Data Parsing*:
+    - Split the cell value into two parts: the name (before the colon) and the status (after the colon).
+    - Place the *name* in *column A* and the *status* in *column B*.
+
+2. *Color Formatting*:
+    - *If the status contains "Leave" or "Absent": Color the entire row from **column A to G* in *red*.
+    - *If the status contains the word "with"* (case-insensitive): Color the entire row from *column A to G* in *green*.
+    - *For all other statuses: Leave the entire row from **column A to G* *white*.
+
+3. The macro should loop through *rows A4 to A26* and apply the formatting based on the status found in *column B*.
+```
