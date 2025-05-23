@@ -572,3 +572,8 @@ The following functionality should be implemented:
 
 3. The macro should loop through *rows A4 to A26* and apply the formatting based on the status found in *column B*.
 ```
+
+*Prompt:*
+```
+"Generate a compelling product description for [Product Name]. Provide a concise short description that highlights its primary benefits and key features. Then, create a detailed long description that includes additional technical specifications, materials used, dimensions, weight, compatibility, and application. The tone should be engaging, informative, and suitable for an e-commerce product listing. Ensure the description emphasizes the product’s advantages and why it stands out in its category."
+```
