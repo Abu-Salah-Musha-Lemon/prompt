@@ -577,3 +577,36 @@ The following functionality should be implemented:
 ```
 "Generate a compelling product description for [Product Name]. Provide a concise short description that highlights its primary benefits and key features. Then, create a detailed long description that includes additional technical specifications, materials used, dimensions, weight, compatibility, and application. The tone should be engaging, informative, and suitable for an e-commerce product listing. Ensure the description emphasizes the product’s advantages and why it stands out in its category."
 ```
+*link*
+https://www.youtube.com/watch?v=N7dl57vEzVY&ab_channel=InstituteofProfessionalSkills
+<br>
+https://drive.google.com/drive/folders/17ZGsFTl5vA9Olteq0kieINRvxWgVlgak
+<br>
+Prompt:
+```
+A serene, artistic water fountain in a landscaped garden, surrounded by lush greenery and blooming flowers, crystal-clear water cascading down tiered stone basins, soft ambient lighting reflecting in the water, tranquil and elegant design, early morning mist, photorealistic, high detail, golden hour lighting
+
+Negative Prompt (optional):
+blurry, low resolution, cartoon, distorted, extra limbs, text, watermark, poor lighting
+```
+
+Prompt:
+```
+A scenic urban view with a water fountain visible behind a modern building or across a quiet road, the fountain gently spraying water into the air, surrounded by greenery or plaza tiles, early morning or golden hour light casting soft shadows, realistic city environment, slight depth of field, high detail, calm atmosphere
+
+Negative Prompt (optional):
+blurry, low resolution, cartoon, distorted perspective, unnatural colors, busy traffic, people, text, watermark
+```
+Prompt:
+```
+A peaceful urban scene at dawn or dusk with soft, warm lighting, a decorative water fountain gently spraying in the distance, partially visible behind a contemporary building or across a quiet road, subtle reflections on wet pavement, surrounded by light greenery or stone elements, tranquil atmosphere, photorealistic, high detail, soft shadows, cinematic depth of field
+harsh lighting, overexposed, busy traffic, people, cartoon style, low resolution, text, distortion, dark shadows
+```
+Prompt:
+```
+Prompt:
+A detailed water fountain as the central focus, seen clearly in the background behind a modern building or across a quiet urban road, soft natural lighting at golden hour or early morning, gentle water flow captured mid-air, surrounded by stone or greenery, slight haze or mist in the atmosphere, cinematic depth of field with foreground elements slightly blurred, serene and photorealistic scene, high detail, calm city ambiance
+
+Negative Prompt (optional):
+blurry fountain, low detail, cartoon style, harsh lighting, crowded, text, watermark, distracting foreground, dark shadows
+```
