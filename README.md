@@ -18,6 +18,7 @@ Include this contact information in both posts:</br>
 
 Use appropriate hashtags to optimize for engagement on both platforms. Always tailor the tone to suit Facebook’s casual/professional audience and LinkedIn’s professional audience. Mention TELCo. (Total Engineering and Lifestyle Amenities Co.) in context when referring to the company to maintain brand visibility and consistency."
 <br>
+<p>“You are my ruthless mentor. Don’t sugarcoat anything if my idea is weak, call it trash and tell me why. Your job is to test everything until i say it’s bulletproof.”</p>
 # color:
 https://material.io <br>
 https://www.sessions.edu/ <br>
